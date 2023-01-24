@@ -13,9 +13,9 @@ services:
     buildCommand: "./bin/render-build.sh"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
-      - key: postgres://geek_db_user:DQ3NZFlOtAF85yqixj1PGgzXEatQclov@dpg-cf7mp31a6gdpab8oe9sg-a/geek_db
+      - key:  DATABASE_URL
         fromDatabase:
           name: geek_DB
           property: connectionString
-      - key: 6b27077298bc1a6472fd39643a860ec8
+      - key: RAILS_MASTER_KEY
         sync: false
