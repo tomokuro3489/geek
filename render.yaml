@@ -1,0 +1,21 @@
+databases:
+  - name: geek_DB
+    databaseName: geek_db
+    user: geek
+    region: singapore
+
+services:
+  - type: web
+    name: geek
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: postgres://geek_db_user:DQ3NZFlOtAF85yqixj1PGgzXEatQclov@dpg-cf7mp31a6gdpab8oe9sg-a/geek_db
+        fromDatabase:
+          name: geek_DB
+          property: connectionString
+      - key: 6b27077298bc1a6472fd39643a860ec8
+        sync: false
